@@ -20,7 +20,7 @@
         "views/helpdesk_team_views.xml",
         "views/helpdesk_stage_views.xml",
         "views/helpdesk_actions_views.xml",
-        "views/res_users_views.xml",
+
     ],
     "application": True,
     "installable": True,

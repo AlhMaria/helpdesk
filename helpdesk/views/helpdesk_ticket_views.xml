@@ -17,7 +17,6 @@
                                 Name:
                                 <field name="name"/>
                             </h1>
-
                         </div>
                         <group>
                           <field name="partner_id"/>
@@ -136,7 +135,6 @@
                       </pivot>
                   </field>
         </record>
-
         <record id="helpdesk_ticket_action" model="ir.actions.act_window">
             <field name="name">Tickets</field>
             <field name="type">ir.actions.act_window</field>
