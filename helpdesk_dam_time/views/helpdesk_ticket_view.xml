@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <odoo>
+    <record id="ticket_view_form" model="ir.ui.view">
+      <field name="name">project.ticket.form helpdesk</field>
+      <field name="model">helpdesk.ticket</field>
+      <field name="inherit_id" ref="helpdesk.ticket_view_form"/>
+      <field name="arch" type="xml">
+        <field name="stock_picking_ids" position="after">
+            <field name="project_id"/>
+            <field name="project_task_id" options="{'no_create': True, 'no_create_edit':True}" />
+            <field name="planned_hours" attrs="{'invisible': [('project_task_id', '=', False)]}"/>
+            <field name="effective_hours" attrs="{'invisible': [('project_task_id', '=', False)]}"/>
+            <field name="hr_timesheet" attrs="{'invisible': [('project_task_id', '=', False)]}"/>
+        </field>
+      </field>
+    </record>
+  </odoo>
