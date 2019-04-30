@@ -6,9 +6,15 @@
     <field name="model">helpdesk.ticket</field>
     <field name="inherit_id" ref="helpdesk.ticket_view_form"/>
     <field name="arch" type="xml">
-      <field name="actions_ids" position="after">
-        <field name="stock_picking_ids"/>
-      </field>
+      <xpath expr="//notebook" position="inside">
+        <page string="Picking" name="picking" attrs="{'invisible': [('stock_picking_ids', '=', [])]}">
+          <group name="picking" no_label="0">
+            <field name="stock_picking_ids" no_label="1"/>
+          </group>
+
+        </page>
+      </xpath>
+
     </field>
   </record>
 </odoo>

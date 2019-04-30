@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="new_portal_my_home" inherit_id="portal.portal_my_home">
+    <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+           <t t-call="portal.portal_docs_entry">
+            <t t-set="title">Client Form</t>
+            <t t-set="url" t-value="'/new_helpdesk_ticket'"/>
+          </t>
+     </xpath>
+   </template>
+
+  <template id="new_helpdesk_ticket" name="New Helpdesk Ticket">
+    <div class="oe_helpdesk_ticket" action="/new_helpdesk_ticket_done" target="_blank">
+        Email:<br/>
+        <input type="text" name="partner_email" colors="red"/><br/>
+        Ticket subject:<br/>
+        <input type="text" name="ticket_subjet"/><br/>
+        Details:<br/>
+        <input type="text" name="ticket_detail"/><br/>
+        <br/><br/>
+        <input type="submit" value="Submit"/>
+    </div>
+  </template>
+
+  <template id="new_helpdesk_ticket_done" name="New Helpdesk Ticket Done">
+    <p t-esc="partner_email_done"/>
+  </template>
+
+</odoo>

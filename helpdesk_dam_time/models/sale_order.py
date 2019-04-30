@@ -40,11 +40,31 @@ class SaleOrder(models.Model):
             order.write({
                 'project_ids': [(6, 0, [project.id])]
             })
-            return {
-                'name': 'Project Form',
-                'view_type': 'form',
-                'view_mode': 'form',
-                'res_model': 'project.project',
-                'res_id': project.id,
-                'type': 'ir.actions.act_window',
-            }
+            return True
+
+    @api.multi
+    def action_confirm(self):
+        super(SaleOrder, self).action_confirm()
+        self.action_create_project()
+
+    # @api.multi
+    # def action_create_project(self):
+    #     project_obj = self.env['project.project']
+    #     for order in self:
+    #         if order.project_ids:
+    #             raise Warning((
+    #                 'There is a project already related with this sale order'
+    #             ))
+    #         vals = order._prepare_project_vals()
+    #         project = project_obj.create(vals)
+    #         order.write({
+    #             'project_ids': [(6, 0, [project.id])]
+    #         })
+    #         return {
+    #             'name': 'Project Form',
+    #             'view_type': 'form',
+    #             'view_mode': 'form',
+    #             'res_model': 'project.project',
+    #             'res_id': project.id,
+    #             'type': 'ir.actions.act_window',
+    #         }
