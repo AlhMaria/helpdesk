@@ -9,10 +9,11 @@
     <field name="inherit_id" ref="helpdesk.ticket_view_form"/>
     <field name="arch" type="xml">
       <field name="actions_ids" position="after">
+
         <field name="stock_picking_ids"/>
       </field>
     </field>
   </record>
-
-
+      
 </odoo>
+

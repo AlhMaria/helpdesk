@@ -22,5 +22,4 @@ class StockReturnPicking(models.TransientModel):
         stock_picking = self.env['stock.picking']
         picking_return = stock_picking.browse(res[0])
         picking_return.write({'ticket_id': ticket})
-
         return res[0], res[1]
